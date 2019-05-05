@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+ 
+<script type="text/javascript">
+
+	function fn_sender() {
+		
+		var frmLogin = document.frmLogin;
+		var id = frmLogin.login_id.value;
+		var pw = frmLogin.login_pw.value;
+		
+		if(id.length == 0 || id == "") {
+			alert("[아이디]를 입력하세요.");
+		}
+		else if(pw.length == 0 || pw == "") {
+			alert("비밀번호를 입력하세요.");
+		}
+		else {
+ 			frmLogin.method = "get";
+			frmLogin.action = "login";
+			frmLogin.submit();
+		}
+		
+	}
+	
+</script>
+
+</head>
+<body>
+	
+	<form name="frmLogin" encType="utf-8">
+		<table>
+			<tr>
+				<td>아이디</td>
+				<td><input type="text" name="login_id" /></td>
+			</tr>
+			<tr>
+				<td>비밀번호</td>
+				<td><input type="password" name="login_pw" /></td>
+			</tr>
+		</table>
+		
+		<input type="button" value="로그인" onClick="fn_sender()" />
+		<input type="button" value="회원가입" onClick="window.location.href='signup.html'" />
+		
+	</form>
+	
+</body>
+</html>

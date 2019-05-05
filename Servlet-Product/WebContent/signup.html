@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Sign Up</title>
+ 
+<script type="text/javascript">
+
+	function fn_sender() {
+	
+		var frmSignUp = document.frmSignUp;
+		var id = frmSignUp.su_id.value;
+		var pw = frmSignUp.su_pw.value;
+		var name = frmSignUp.su_name.value;
+		var tel = frmSignUp.su_tel.value;
+		
+		if(id.length == 0 || id == "") {
+			alert("[아이디]를 입력하세요.");
+		}
+		else if(pw.length == 0 || pw == ""){
+			alert("[비밀번호]를 입력하세요.");
+		}
+		else if(name.length == 0 || name == "") {
+			alert("[이름]를 입력하세요.");
+		}
+		else if(tel.length == 0 || tel == "") {
+			alert("[전화번호]]를 입력하세요.");
+		}
+		else {
+			frmSignUp.method="get";
+			frmSignUp.action="signup";
+			frmSignUp.submit();
+		}
+		
+	}
+	
+	function fn_checkID() {
+		
+		var id = document.frmSignUp.su_id.value;
+		
+		window.open("popup.html?id=" + id,width="250",height="250");
+		
+	}
+	
+</script>
+
+</head>
+<body>
+
+	<form name="frmSignUp" encType="utf-8">
+		<table>
+			<tr>
+				<td>아이디</td>
+				<td><input type="text" name="su_id" placeholder="아이디 입력" /></td>
+				<td><input type="button" name="btnCheck" value="중복확인" onClick="fn_checkID()"/>
+			</tr>
+			<tr>
+				<td>비밀번호</td>
+				<td><input type="password" name="su_pw" placeholder="비밀번호 입력" /></td>
+			</tr>
+			<tr>
+				<td>이름</td>
+				<td><input type="text" name="su_name" placeholder="이름 입력" /></td>
+			</tr>
+			<tr>
+				<td>전화번호</td>
+				<td><input type="text" name="su_tel" placeholder="전화번호 입력" /></td>
+			</tr>
+		</table>
+		
+		<input type="button" value="회원가입" onClick="fn_sender()"/>
+		<input type="reset" value="새로고침" />
+		
+	</form>
+
+</body>
+</html>

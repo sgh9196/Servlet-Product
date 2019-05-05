@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>상품등록</title>
+
+<script type="text/javascript">
+	
+	function fn_sender() {
+		
+		var frmAddProduct = document.frmAddProduct;
+		
+		var pN = frmAddProduct.pName.value;
+		var pC = frmAddProduct.pCount.value;
+		var pM = frmAddProduct.pMoney.value;
+		var pS = frmAddProduct.pStandard.value;
+		var fD = frmAddProduct.firstDate.value;
+		var iD = frmAddProduct.inDate.value;
+		
+		if(pN.length == 0 || pN == "") {
+			alert("[상품명]을 입력하세요");
+		}
+		else if(pC.length == 0 || pC == "") {
+			alert("[수량]을 입력하세요");
+		}
+		else if(pM.length == 0 || pM == "") {
+			alert("[금액]을 입력하세요");
+		}
+		else if(pS.length == 0 || pS == "") {
+			alert("[규격]을 입력하세요");
+		}
+		else if(fD.length == 0 || fD == "") {
+			alert("[제조일]을 입력하세요");
+		}
+		else if(iD.length == 0 || iD == "") {
+			alert("[입고일]을 입력하세요");
+		}
+		else {
+			frmAddProduct.method = "get";
+			frmAddProduct.action = "admin";
+			frmAddProduct.submit();
+		}
+		
+	}
+	
+</script>
+
+</head>
+<body>
+
+	<form name="frmAddProduct" encType="utf-8">
+	
+		<table>
+			<tr>
+				<td>상품명</td>
+				<td><input type="text" name="pName" /></td>
+			</tr>
+			<tr>
+				<td>수량</td>
+				<td><input type="number" name="pCount" min="1" max="100" /></td>
+			</tr>
+			<tr>
+				<td>단가</td>
+				<td><input type="text" name="pMoney" /></td>
+			</tr>
+			<tr>
+				<td>규격</td>
+				<td><input type="text" name="pStandard" /></td>
+			</tr>
+			<tr>
+				<td>제조일</td>
+				<td><input type="date" name="firstDate" /></td>
+			</tr>
+			<tr>
+				<td>입고일</td>
+				<td><input type="date" name="inDate" /></td>
+			</tr>
+		</table>
+		
+		<input type="button" value="등록하기" onClick="fn_sender()" />
+		<input type="reset" value="새로고침" />
+		<input type="hidden" name="command" value="addProduct" />
+		
+	</form>
+</body>
+</html>
